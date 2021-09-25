@@ -1,0 +1,206 @@
+html,body{
+    background: url(arkaplan.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+header{
+    padding:2%;
+    background-color: rgba(255, 255, 255, 0.5);
+    text-align:center ;
+    font-family: "Copperlate", "Papyrus", "Fantasy";
+    font-weight: bold;
+}
+.tarih{
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 1%;
+}
+
+.modal{
+    display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+  }
+  
+  /* The Close Button */
+  .close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+.güncel{
+    border-radius: 10px;
+    margin-top: 1%;
+    margin-left: 15%;
+    height: 5%;
+    width: 25%;
+}
+.güncelle{
+    float: right;
+    color: black;
+    margin-right: 1%;
+}
+#yaz{
+    border-radius: 10px;
+    margin-left: 15%;
+    height: 5%;
+    width: 25%;
+}
+.ekleme{
+    border-radius: 10px;
+    height: 5%;
+    width: 5%;
+}
+.sil{
+    float:right;
+    color:black;
+}
+#but.checked{
+    color: red;
+}
+ul li button.checked{
+    color:red;
+}
+.yap{
+    float:right;
+}
+.kate{
+    float:right;
+    margin-right: 1%;
+}
+#cikis{
+    margin:5%;
+    border-radius: 10px;
+}
+#cikis1{
+    float:left;
+    text-align: center;
+    margin-top: 3%;
+    margin-left:5%;
+    height: 200px;
+    width: 15%;
+    background-color:rgb(255,255,255,0.6);
+    position: relative;
+    animation: tanım 1s;
+}
+#tex{
+    margin-top: 15%;
+    font-weight: bold;
+}
+#kati{
+    float: right;
+    margin-right: 20%;
+}
+#bilgi{
+    font-weight: bold;
+    color:#0e55a5;
+    font-size: 20px;
+}
+ul{
+    border-radius: 10px;
+    background-color: rgb(255,255,255,0.6);
+    text-align: left;
+    margin-top: 1%;
+    margin-left: 35%;
+    width: 30%;
+}
+li{
+    padding:2%;
+    font-size: 150%;  
+}
+li:hover{
+    background-color: rgb(207, 207, 207);
+}
+ul li.checked{
+    text-decoration: line-through;
+    color:rgb(197, 11, 11);
+}
+.yaz1{
+    border-radius: 10px;
+    margin-left: 5%;
+    margin-bottom: 1%;
+    height: 5%;
+    width: 90%;
+    border: 2px solid #2d81e2;
+}
+.form1{
+    background-color: rgb(28, 118, 202, 0.6);
+    width: 30%;
+    margin-left: 35%;
+    padding: 1%;
+    position: relative;
+    animation: mymove 1s;
+}
+.ekleme1{
+    border-radius: 10px;
+    margin-left: 37%;
+    border: 2px solid #2d81e2;
+    background-color: white;
+}
+.baslık{
+    margin-left: 40%;
+    color: #21262b;
+    position: relative;
+    animation: mymove 1s;
+}
+@keyframes mymove {
+    from {top: -100%;}
+    to {top: 0%;}
+}
+#canvas{
+    float:right;
+    margin-top: 3%;
+    margin-right: 7%;
+    position: relative;
+    animation: saat 1s;
+}
+@keyframes saat {
+    from {right: -100%;}
+    to {right: 0%;}
+}
+#tanım{
+    float: left;
+    margin-top: 2%;
+    margin-left: 7%;
+    padding:1%;
+    width: 20%;
+    font-size: 240%;
+    text-align: center;
+    color: rgb(0, 0, 0, 0.7);
+    font-weight: bold;
+    background:url(kagit.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+    animation: tanım 1s;
+}
+@keyframes tanım {
+    from {left: -100%;}
+    to {left: 0%;}
+}
+

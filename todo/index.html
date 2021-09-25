@@ -1,0 +1,138 @@
+<html>
+<head>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="tema.css">
+<meta charset="utf8">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<title>ToDo List</title>
+</head>
+<body>
+<header>
+<h1>
+To Do List
+</h1>
+</header>
+<hr>
+<div class="tarih">
+    <script> 
+    var now = new Date(); var yr = now.getYear(); var mName = now.getMonth() + 1; var dName = now.getDay() + 1; 
+    var yr_str = " 19";
+    var dayNr = ((now.getDate()<10) ? "" : "")+ now.getDate(); if(dName==1) Day = "Pazar"; if(dName==2) Day = "Pazartesi"; if(dName==3) Day = "Salı"; if(dName==4) Day = "Çarşamba"; if(dName==5) Day = "Perşembe"; if(dName==6) Day = "Cuma"; if(dName==7) Day = "Cumartesi"; if(mName==1) Month="Ocak"; if(mName==2) Month="Şubat"; if(mName==3) Month="Mart"; 
+    if(mName==4) Month="Nisan"; if(mName==5) Month="Mayıs"; if(mName==6) Month="Haziran"; if(mName==7) Month="Temmuz"; if(mName==8) Month="Ağustos"; if(mName==9) Month="Eylül"; 
+    if(mName==10) Month="Ekim"; if(mName==11) Month="Kasım"; if(mName==12) Month="Aralık"; 
+    if ( yr > 99 ) 
+    { 
+    yr_str =" "; 
+    if ( yr < 2000 ) yr += 1900; 
+    }var todaysDate =(" " + dayNr + " " + Month + yr_str + yr + "" + ", " + Day + ""); document.open(); document.write("<FONT face=arial SIZE=4 color=black>"+todaysDate+"</FONT>");// --> 
+    </script>
+</div>
+<div id="tanım">
+    <br>
+    <p>Giriş yaparak kendi yapılıcaklar listenizi oluşturun ve bu sayede yapacaklarınızı unutmayın!!!</p>
+</div>
+<canvas id="canvas" width="300" height="300">
+</canvas>
+<h1 class="baslık">
+    KULLANICI KAYIT
+</h1>
+<form class="form1">
+    <input type="text" autocomplete="off" class="yaz1" id="kul" placeholder="Kullanıcı Adınızı Giriniz..."></br>
+    <input type="password" class="yaz1" id="sif" placeholder="Kullanıcı Şifrenizi Giriniz..."></br>
+    <button class="ekleme1" type="submit" id="ekle1">KAYIT OL</button>
+</form>
+<h1 class="baslık">
+    KULLANICI GİRİŞ
+</h1>
+<form class="form1">
+    <input type="text" autocomplete="off" class="yaz1" id="kul2" placeholder="Kayıtlı Kullanıcı Adınızı Giriniz..."></br>
+    <input type="password" class="yaz1" id="sif2" placeholder="Kayıtlı Kullanıcı Şifrenizi Giriniz..."></br>
+    <button class="ekleme1" type="submit" id="giris2">GİRİŞ YAP</button>
+</form>
+
+<script>
+var canvas = document.getElementById("canvas");
+var ctx = canvas.getContext("2d");
+var radius = canvas.height / 2;
+ctx.translate(radius, radius);
+radius = radius * 0.90
+setInterval(drawClock, 100);
+
+function drawClock() {
+  drawFace(ctx, radius);
+  drawNumbers(ctx, radius);
+  drawTime(ctx, radius);
+}
+
+function drawFace(ctx, radius) {
+  var grad;
+  ctx.beginPath();
+  ctx.arc(0, 0, radius, 0, 2*Math.PI);
+  ctx.fillStyle = 'white';
+  ctx.fill();
+  grad = ctx.createRadialGradient(0,0,radius*0.95, 0,0,radius*1.05);
+  grad.addColorStop(0, '#333');
+  grad.addColorStop(0.5, 'rgb(28, 118, 202, 0.6)');
+  grad.addColorStop(1, '#333');
+  ctx.strokeStyle = grad;
+  ctx.lineWidth = radius*0.1;
+  ctx.stroke();
+  ctx.beginPath();
+  ctx.arc(0, 0, radius*0.1, 0, 2*Math.PI);
+  ctx.fillStyle = '#333';
+  ctx.fill();
+}
+
+function drawNumbers(ctx, radius) {
+  var ang;
+  var num;
+  ctx.font = radius*0.15 + "px arial";
+  ctx.textBaseline="middle";
+  ctx.textAlign="center";
+  for(num = 1; num < 13; num++){
+    ang = num * Math.PI / 6;
+    ctx.rotate(ang);
+    ctx.translate(0, -radius*0.85);
+    ctx.rotate(-ang);
+    ctx.fillText(num.toString(), 0, 0);
+    ctx.rotate(ang);
+    ctx.translate(0, radius*0.85);
+    ctx.rotate(-ang);
+  }
+}
+
+function drawTime(ctx, radius){
+    var now = new Date();
+    var hour = now.getHours();
+    var minute = now.getMinutes();
+    var second = now.getSeconds();
+    //hour
+    hour=hour%12;
+    hour=(hour*Math.PI/6)+
+    (minute*Math.PI/(6*60))+
+    (second*Math.PI/(360*60));
+    drawHand(ctx, hour, radius*0.5, radius*0.07);
+    //minute
+    minute=(minute*Math.PI/30)+(second*Math.PI/(30*60));
+    drawHand(ctx, minute, radius*0.8, radius*0.07);
+    // second
+    second=(second*Math.PI/30);
+    drawHand(ctx, second, radius*0.9, radius*0.02);
+}
+
+function drawHand(ctx, pos, length, width) {
+    ctx.beginPath();
+    ctx.lineWidth = width;
+    ctx.lineCap = "round";
+    ctx.moveTo(0,0);
+    ctx.rotate(pos);
+    ctx.lineTo(0, -length);
+    ctx.stroke();
+    ctx.rotate(-pos);
+}
+</script>
+<!--<script src="todo.js"></script>-->
+<script src="kulkayit.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</body>
+</html>
